@@ -7,8 +7,15 @@ package com.example.mukhtaralhejji.password_validator;
 public class validator {
 
     public static boolean validate(String pass){
-        if(!pass.toLowerCase().equals("password") && pass.length() >= 8) {
-            return true;
+        //password must have special char, number, lower/upper cases
+        if(!pass.equals("password") &&
+                pass.length() >= 8 &&
+                pass.matches(".*[$&+,:;=?@#||].*") &&
+                pass.matches(".*[0-9].*") &&
+                pass.matches(".*[a-z].*") &&
+                pass.matches(".*[A-Z].*")) {
+
+                    return true;
         }
         else{
             return false;

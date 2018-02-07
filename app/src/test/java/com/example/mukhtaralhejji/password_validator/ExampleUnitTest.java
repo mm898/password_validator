@@ -21,13 +21,33 @@ public class ExampleUnitTest {
     }
 
     @Test
-    public void password_is_not_PASSWORD(){
-        assertFalse(validator.validate("PASSWORD"));
+    public void password_is_not_short(){
+        assertFalse(validator.validate("PASS"));
     }
 
     @Test
-    public void password_is_not_short(){
-        assertFalse(validator.validate("PASS"));
+    public void password_not_contains_special_char(){
+        assertFalse(validator.validate("abcdefghijklm"));
+    }
+
+    @Test
+    public void password_not_contains_digit(){
+        assertFalse(validator.validate("abcdefghijklm"));
+    }
+
+    @Test
+    public void password_not_contains_lowercase(){
+        assertFalse(validator.validate("ABCDEFGHIJKLM"));
+    }
+
+    @Test
+    public void password_not_contains_upercase(){
+        assertFalse(validator.validate("abcdefghijklm"));
+    }
+
+    @Test
+    public void password_is_perfect(){
+        assertTrue(validator.validate("abcdef@gHi1jklm"));
     }
 
 
