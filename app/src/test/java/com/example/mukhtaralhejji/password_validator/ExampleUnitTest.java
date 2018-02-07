@@ -14,4 +14,21 @@ public class ExampleUnitTest {
     public void addition_isCorrect() throws Exception {
         assertEquals(4, 2 + 2);
     }
+
+    @Test
+    public void password_is_not_password(){
+        assertFalse(validator.validate("password"));
+    }
+
+    @Test
+    public void password_is_not_PASSWORD(){
+        assertFalse(validator.validate("PASSWORD"));
+    }
+
+    @Test
+    public void password_is_not_short(){
+        assertFalse(validator.validate("PASS"));
+    }
+
+
 }
